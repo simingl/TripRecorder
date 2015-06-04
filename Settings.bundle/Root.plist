@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>PreferenceSpecifiers</key>
+	<array>
+		<dict>
+			<key>Type</key>
+			<string>PSTextFieldSpecifier</string>
+			<key>Title</key>
+			<string></string>
+			<key>Key</key>
+			<string></string>
+		</dict>
+		<dict>
+			<key>Title</key>
+			<string>Group</string>
+			<key>Type</key>
+			<string>PSGroupSpecifier</string>
+		</dict>
+		<dict>
+			<key>AutocapitalizationType</key>
+			<string>None</string>
+			<key>AutocorrectionType</key>
+			<string>No</string>
+			<key>DefaultValue</key>
+			<string>1.0</string>
+			<key>IsSecure</key>
+			<false/>
+			<key>Key</key>
+			<string>stop_distance</string>
+			<key>KeyboardType</key>
+			<string>NumberPad</string>
+			<key>Title</key>
+			<string>Stop Distance (meters)</string>
+			<key>Type</key>
+			<string>PSTextFieldSpecifier</string>
+		</dict>
+		<dict>
+			<key>AutocapitalizationType</key>
+			<string>None</string>
+			<key>AutocorrectionType</key>
+			<string>No</string>
+			<key>DefaultValue</key>
+			<string>1.0</string>
+			<key>IsSecure</key>
+			<false/>
+			<key>Key</key>
+			<string>short_stop</string>
+			<key>KeyboardType</key>
+			<string>NumberPad</string>
+			<key>Title</key>
+			<string>Short Stop</string>
+			<key>Type</key>
+			<string>PSTextFieldSpecifier</string>
+		</dict>
+		<dict>
+			<key>AutocapitalizationType</key>
+			<string>None</string>
+			<key>AutocorrectionType</key>
+			<string>No</string>
+			<key>DefaultValue</key>
+			<string>1.0</string>
+			<key>IsSecure</key>
+			<false/>
+			<key>Key</key>
+			<string>long_stop</string>
+			<key>KeyboardType</key>
+			<string>NumberPad</string>
+			<key>Title</key>
+			<string>Long Stop</string>
+			<key>Type</key>
+			<string>PSTextFieldSpecifier</string>
+		</dict>
+	</array>
+	<key>StringsTable</key>
+	<string>Root</string>
+</dict>
+</plist>
