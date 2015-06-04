@@ -1,11 +1,3 @@
-//
-//  ViewController.swift
-//  TripRecorder
-//
-//  Created by Zach Newell on 11/23/14.
-//  Copyright (c) 2014 Zach Newell. All rights reserved.
-//
-
 import UIKit
 import AVFoundation
 import MapKit
@@ -17,7 +9,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     var captureSession = AVCaptureSession();
     var captureDevice : AVCaptureDevice?
     var previewLayer : AVCaptureVideoPreviewLayer?
-    
     
     //Location
     var locationManager : CLLocationManager?
@@ -37,12 +28,14 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     @IBOutlet weak var previewView: UIView!
     @IBOutlet weak var startButton: UIButton!
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    func initUI(){
         //Button
         startButton.layer.borderWidth = 1.0;
         startButton.layer.borderColor = UIColor.blueColor().CGColor
-        
+    }
+  
+    
+    func initVideo(){
         // Do any additional setup after loading the view, typically from a nib.
         captureSession.sessionPreset = AVCaptureSessionPresetHigh
         
@@ -61,13 +54,23 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         
         captureDevice?.lockForConfiguration(nil)
         captureDevice?.focusMode = AVCaptureFocusMode.ContinuousAutoFocus
-        
+    }
+    
+    func initLocation(){
         //LocationManager
         locationManager = CLLocationManager()
         locationManager!.delegate = self
         locationManager!.desiredAccuracy = kCLLocationAccuracyBestForNavigation
         locationManager!.requestAlwaysAuthorization()
         locationManager!.startUpdatingLocation()
+    }
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        initUI()
+        initVideo()
+        initLocation()
         
         //Settings
         var userSettings = NSUserDefaults.standardUserDefaults()
@@ -137,19 +140,12 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
 
 
     func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
-        
         var currentLocation = locations.last as! CLLocation
-        
         var diff: Double = 0.0
-        
         if lastLocation == nil {
-            
             lastLocation = currentLocation
-            
         }
-        
         else {
-            
             var distance = currentLocation.distanceFromLocation(lastLocation);
             diff  = currentLocation.timestamp.timeIntervalSinceDate(lastLocation!.timestamp)
             
@@ -165,7 +161,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
                     sa.coordinate = lastLocation!.coordinate
                     mapView.addAnnotation(sa)
                 }
-    
                 
                 lastLocation = currentLocation
                 
